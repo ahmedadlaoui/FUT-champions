@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div style="display: flex;" class="logo">
+            <img src="images/fc25 logo.svg" alt="FC25's logo">
+            <h1>Squad Builder</h1>
+        </div>
+        <select name="tactical formations" id="forms">
+            <option value="" disabled selected>Tactical formations</option>
+            <option value="433">4-3-3</option>
+            <option value="442">4-4-2</option>
+        </select>
+    </header>
+    <section class="hero">
+
+
+
+
+
+        <div class="players-board-442">
+
+            <div class="players">
+                <div id="attackers442">
+                    <div class="card ST1"><img src="images/new.svg" alt=""></div>
+                    <div class="card ST2"><img src="images/new.svg" alt=""></div>
+                </div>
+                <div id="center442">
+                    <div class="card LM"><img src="images/new.svg" alt=""></div>
+                    <div class="card CM1"><img src="images/new.svg" alt=""></div>
+                    <div class="card CM2"><img src="images/new.svg" alt=""></div>
+                    <div class="card RM"><img src="images/new.svg" alt=""></div>
+                </div>
+                <div id="defenders442">
+                    <div class="card LB"><img src="images/new.svg" alt=""></div>
+                    <div class="card CB1"><img src="images/new.svg" alt=""></div>
+                    <div class="card CB2"><img src="images/new.svg" alt=""></div>
+                    <div class="card RB"><img src="images/new.svg" alt=""></div>
+                </div>
+                <div id="goal-keeper">
+                    <div class="card GK"><img src="images/new.svg" alt=""></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="players-board-433">
+
+            <div class="players">
+                <div id="attackers">
+                    <div class="card LW">
+                        <img src="images/new.svg" class="backgrnd">
+                    </div>
+                    <div class="card ST1"><img src="images/new.svg" alt="">
+                    </div>
+                    <div class="card RW"><img src="images/new.svg" alt="">
+                    </div>
+                </div>
+                <div id="center">
+                    <div class="card CM1"><img src="images/new.svg" alt="">
+                    </div>
+                    <div class="card CM2"><img src="images/new.svg" alt="">
+                    </div>
+                    <div class="card CM3"><img src="images/new.svg" alt="">
+                    </div>
+                </div>
+                <div id="defenders">
+                    <div class="card RB"><img src="images/new.svg" alt="">
+                    </div>
+                    <div class="card CB1"><img src="images/new.svg" alt="">
+                    </div>
+                    <div class="card CB2"><img src="images/new.svg" alt="">
+                    </div>
+                    <div class="card LB"><img src="images/new.svg" alt="">
+                    </div>
+                </div>
+                <div id="goal-keeper">
+                    <div class="card GK"><img src="images/new.svg" alt="">
+                        <!-- <p class="name"></p>
+                        <p class="rating"></p>
+                        <div class="stats">
+                            <p>kic:<span></span></p>
+                            <p>Div:<span></span></p>
+                            <p>Han:<span></span></p>
+                            <p>Ref:<span></span></p>
+                            <p>Spe:<span></span></p>
+                            <p>Pos:<span></span></p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+
+    </section>
+    <section class="ajout">
+
+        <div class="changement" id="location">
+            <h1>Players</h1>
+            <p id="no-players-message">No players found ...</p>
+            <div class="cards-grid">
+            </div>
+        </div>
+
+
+        <form>
+            <h1 style="color: white;font-family: sans-serif;border-bottom: 1px solid white;position: absolute;top: 56px;">Add  player</h1>
+            <select name="positions" id="positions" style="position: absolute;top: 8px;right: 8px;" required>
+                <option value="" disabled selected>Role</option>
+                <option value="GK">GK</option>
+                <option value="ST1">ST1</option>
+                <option value="ST2">ST2</option>
+                <option value="CM1">CM1</option>
+                <option value="CM2">CM2</option>
+                <option value="CM3">CM3</option>
+                <option value="RW">RW</option>
+                <option value="LW">LW</option>
+                <option value="CB1">CB1</option>
+                <option value="CB2">CB2</option>
+            </select>
+
+            <input type="file" id="player-picture" accept="images/png">
+            <input type="file" id="flag-picture" accept="images/jpeg, images/png, images/jpg">
+            <input type="file" id="club-picture" accept="images/jpeg, images/png, images/jpg">
+
+            <div> 
+                <div style="display: flex;flex-direction: column; justify-content: center;align-items: center;">
+                    <div style="position: relative;">
+                        <img src="images/bg-removebg-preview.png" id="imgplace">
+                        <label for="player-picture"
+                            style="background-color: transparent; border: none;cursor: pointer;"><svg
+                                xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                style="position: absolute;bottom: 0;" fill="gray">
+                                <path
+                                    d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" />
+                            </svg></label>
+                    </div>
+                    <input type="text" name="" id="player-name" placeholder="name" required>
+                </div>
+                <div style="display: flex; column-gap: 8px;">
+
+                    <label for="flag-picture" class="nf">+ Flag <img
+                            src="images/flag_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.png" class="addedflag"></label>
+                    <label for="club-picture" class="nf">+ Club <img
+                            src="images/groups_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.png" class="addedclub"></label>
+
+                </div>
+
+            </div>
+
+            <div id="GK-form"
+                style="width: 90%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; column-gap: 16px; row-gap: 8px; border-top: 2px solid rgb(183, 180, 180); margin-top: 16px;display:none;">
+                <input type="number" name="Kicking" id="Kicking" placeholder="Kicking" min="0" max="99" required>
+                <input type="number" name="Diving" id="Diving" placeholder="Diving" min="0" max="99" required>
+                <input type="number" name="Handling" id="Handling" placeholder="Handling" min="0" max="99" required>
+                <input type="number" name="Reflexes" id="Reflexes" placeholder="Reflexes" min="0" max="99" required>
+                <input type="number" name="Speed" id="Speed" placeholder="Speed" min="0" max="99" required>
+                <input type="number" name="Positioning" id="Positioning" placeholder="Positioning" min="0" max="99"
+                    required>
+            </div>
+
+            <div id="normal-form"
+                style="width: 90%;display: grid;grid-template-columns: 1fr 1fr ;grid-template-rows: 1fr 1fr 1fr;column-gap: 16px;row-gap: 8px;border-top: 2px solid rgb(183, 180, 180);margin-top: 16px;display: none;justify-content: center;align-items: center;">
+                <input type="number" name="Shooting" id="Shooting" placeholder="Shooting" min="0" max="99" required>
+                <input type="number" name="Defending" id="Defending" placeholder="Defending" min="0" max="99" required>
+                <input type="number" name="Pace" id="Pace" placeholder="Pace" min="0" max="99" required>
+                <input type="number" name="Passing" id="Passing" placeholder="Passing" min="0" max="99" required>
+                <input type="number" name="Dribling" id="Dribling" placeholder="Dribbling" min="0" max="99" required>
+                <input type="number" name="Physical" id="Physical" placeholder="Physical" min="0" max="99" required>
+            </div>
+
+
+
+
+            <button id="Submition-button" type="submit">Add +</button>
+
+
+        </form>
+    </section>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+
+</html>

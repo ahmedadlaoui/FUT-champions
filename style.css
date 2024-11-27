@@ -1,0 +1,699 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira+Stencil+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+body{
+    background: url(images/homebackground.svg);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}
+header{
+    display: flex;
+    align-items: center;
+    padding: 24px ;
+    width: 100%;
+    justify-content: space-between;
+}
+header h1{
+    color: white;
+    font-family: Saira Stencil One , sans-serif;
+    font-weight: 200;
+}
+.hero{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: 24px;
+
+}
+.players-board-433{
+    width:900px;
+    position: relative;
+    background: url(images/board.svg);
+    height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+}
+#board{
+   width: 100%;
+}
+
+.card{
+    background: url(images/new.svg);
+    height: 150px;
+    width: 105px;
+    transition: 0.5s all ease-out;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 50px;
+}
+.card:hover::after{
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    box-shadow: 0px 5px 110px 40px gold;
+    z-index: -100;
+}
+.card:hover{
+    scale: 1.1;
+}
+.players{
+    width: 90%;
+    position: absolute;
+    top: -40px;
+}
+ #attackers , #center{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+ }
+ #attackers div , #center div{
+    margin: auto;
+ }
+ #defenders{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+ }
+ #defenders div,#goal-keeper div{
+    margin: auto;
+ }
+
+ select{
+    width: 170px;
+    height: 30px;
+    background-color: rgb(57, 57, 57);
+    color: white;
+    font-family: poppins;
+    padding-left:8px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    appearance: none;
+ }
+
+ .players-board-442{
+    width:900px;
+    position: relative;
+    background: url(images/board.svg);
+    height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    display: none;
+ }
+ #attackers442 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ }
+ #attackers442 div{
+    margin: auto;
+ }
+ #center442 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+ }
+ #center442 div{
+    margin: auto;
+ }
+ #defenders442{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+ }
+ #defenders442 div{
+    margin: auto;
+ }
+
+ #players442{
+    width: 90%;
+    position: absolute;
+    top: 10%;
+}
+.pic{
+    position: absolute;
+    right: 6px;
+    top: 14px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+.name-div{
+    position: absolute;
+    top: 72px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+}
+.name{
+    color: white;
+    font-weight: 700;
+    font-family: poppins;
+    font-size: x-small;
+}
+.rating{
+    position: absolute;
+    margin-left: 14px;
+    top: 18px;
+    font-family: poppins;
+    color: white;
+}
+.flag{
+    width:16px ;
+    height: 11px;
+    position: absolute;
+    top: 40px;
+    margin-left: 16px;
+}
+.country{
+    position: absolute;
+    font-size: x-small;
+    top: 36px;
+    margin-left: 12px;
+}
+.stats{
+    display: grid;
+    grid-template-columns: 1fr 1fr  ;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 4px;
+    row-gap: 2px;
+    position: absolute;
+    bottom: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.stats p{
+    color: white;
+    font-size: 10px;
+    font-family: sans-serif;
+    font-weight: 10;
+}
+.club{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 54px;
+    margin-left: 16px;
+}
+
+.changement{
+    height: 600px;
+    background-color: rgb(21, 21, 21);
+    border-radius: 2px;
+    border: 1px solid gray; 
+    min-width: 600px;
+}
+.changement h1{
+    height: 48.8px;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    border-bottom: 1px solid white;
+    margin-top: 24px;
+}
+#no-players-message{
+    margin-left: 12px;
+    margin-top: 12px;
+    color: white;
+    font-family: sans-serif;
+    display:none;
+}
+.change-grid{
+    background: url(images/new.svg);
+    height: 150px;
+    width: 105px;
+    transition: 0.5s all ease-out;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 50px;
+    margin: auto;
+}
+.change-grid:hover{
+    scale: 0.9;
+}
+.cards-grid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+    max-height: 500px;
+    padding: 16px;
+    overflow-y: scroll;
+}
+.cards-grid::-webkit-scrollbar{
+    display: none;
+}
+.position{
+    color: white;
+    font-family: sans-serif;
+    position: absolute;
+    right: 0;
+}
+
+
+.ajout{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 56px;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+form{
+    width: 400px;
+    height: 600px;
+    background-color: rgb(21, 21, 21);
+    border-radius: 2px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    position: relative;
+    
+}
+#imgplace{
+    width: 90px;
+    height:90px;
+    background-color: gray;
+    border-radius: 50%;
+}
+#player-picture{
+    display: none;
+}
+input[type="number"],input[type="text"]{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    margin-top: 12px;
+    outline: none;
+    color: rgba(255, 255, 255, 0.632);
+}
+input[type="file"]{
+    display: none;
+}
+.nf{
+    background-color: rgb(33, 32, 32);
+    padding: 8px;
+    border: 1px solid gray;
+    font-family: sans-serif;
+    border-radius: 14px;
+    color: white;
+    cursor: pointer;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4px;
+}
+.addedclub{
+    width: 32px;
+    height: 26px;
+}
+.addedflag{
+    width: 32px;
+    height: 26px;
+}
+#Submition-button{
+    position: absolute;
+    bottom: 24px;
+    border: 2px solid black;
+    color: black;
+    background-color: rgb(29, 206, 144);
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 120px;
+    transition: 0.5s all ;
+}
+#Submition-button:hover{
+    box-shadow: 0px 0px 100px 1px rgb(29, 206, 144);
+    scale: 1.05;
+}
+.players-board-433 .card.ST1,.players-board-442 .card.CM1,.players-board-442 .card.CM2{
+    transform: translateY(-30px);
+}
+.players-board-433 .card.CM2{
+    transform: translateY(30px);
+}
+.players-board-433 .card.CM1{
+    transform: translatex(30px);
+}
+.players-board-433 .card.CM3{
+    transform: translatex(-30px);
+}
+.players-board-433 .card.CB1,.players-board-442 .card.CB1,.players-board-442 .card.CB2{
+    transform: translateY(30px);
+}
+.players-board-433 .card.CB2{
+    transform: translateY(30px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:1460px) {
+    .hero{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 24px;
+    }
+}
+
+@media screen and (max-width:1013px) {
+    .ajout{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 56px;
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    form{
+        width: 600px;
+        height: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 2px;
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        position: relative;
+        
+    }
+}
+@media screen and (max-width:898px) {
+    .players-board-433{
+        width:100%;
+        position: relative;
+        background: url(images/board.svg);
+        height: 700px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        margin-top: 128px;
+    }
+}
+
+
+@media screen and (max-width:698px) {
+    .players-board-433{
+        width:100%;
+        position: relative;
+        background: url(images/board.svg);
+        height: 500px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        margin-top: 128px;
+    }
+    .changement{
+
+        background-color: rgb(21, 21, 21);
+        border-radius: 10px;
+        border: 1px solid gray; 
+        width: 85%;
+    }
+    .players{
+        transition: all 0.5s;
+        width: 90%;
+        position: absolute;
+        top: -40px;
+    }
+    .cards-grid{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        justify-content: center;
+        justify-content: flex-start;
+        column-gap: 4px;
+        max-height: 450px;
+        padding: 12px;
+        overflow-y: scroll;
+    }
+    #attackers , #center{
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: auto;
+        height: 105px;
+        
+     }
+     #attackers div , #center div{
+        margin: auto;
+      
+     }
+     #defenders{
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: auto;
+        height: 105px;
+     }
+     .card{
+        background: url(images/new.svg);
+        height: 150px;
+        width: 105px;
+        transition: 0.5s all ease-out;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border-radius: 50px;
+        scale:  0.7 ;
+    }
+    .card:hover{
+        scale: 0.9;
+    }
+
+}
+@media screen and (max-width:598px) {
+
+
+    .cards-grid{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-content: center;
+        justify-content: flex-start;
+        column-gap: 10px;
+        max-height: 450px;
+        padding: 16px;
+        overflow-y: scroll;
+    }
+    .changement{
+
+        background-color: rgb(21, 21, 21);
+        border-radius: 10px;
+        border: 1px solid gray; 
+        min-width: 300px;
+    }
+    form{
+        width: 501px;
+        height: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 2px;
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        position: relative;
+        
+    }
+    .card{
+        background: url(images/new.svg);
+        height: 150px;
+        width: 105px;
+        transition: 0.5s all ease-out;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border-radius: 50px;
+        scale:  0.6 ;
+    }
+    .card:hover{
+        scale: 0.8;
+    }
+    header{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 24px ;
+        width: 100%;
+        justify-content: space-between;
+        row-gap: 12px;
+    }
+}
+@media screen and (max-width:516px) {
+    form{
+        width: 425px;
+        height: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 2px;
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        position: relative;
+    }
+}
+@media screen and (max-width:426px) {
+    .players-board-433{
+        width:100%;
+        position: relative;
+        background: url(images/board.svg);
+        height: 300px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        margin-top: 128px;
+    }
+
+    #defenders div{
+        margin-left: -20px;
+     }
+     form{
+        width: 425px;
+        height: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 2px;
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        position: relative;
+    }
+     .card{
+        background: url(images/new.svg);
+        height: 150px;
+        width: 105px;
+        transition: 0.5s all ease-out;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border-radius: 50px;
+        scale:  0.5 ;
+    }
+    .card:hover{
+        scale: 0.7;
+    }
+    .players{
+        width: 90%;
+        position: absolute;
+        margin-top: -20px;
+    }
+    #attackers , #center{
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: auto;
+        height: 75px;
+        
+     }
+     #attackers div , #center div{
+        margin: auto;
+      
+     }
+     #defenders{
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: auto;
+        height: 75px;
+     }
+}
+@media screen and (max-width:376px) {
+    .cards-grid{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: center;
+        justify-content: flex-start;
+        max-height: 450px;
+        padding: 16px;
+        overflow-y: scroll;
+    }
+    #attackers , #center,#defenders{
+        margin-left: 8px;
+    }
+}
+@media screen and (max-width:321px) {
+    #attackers , #center,#defenders{
+        margin-left: -16px;
+    }
+    .logo{
+        flex-direction: column;
+    }
+    .players{
+        width: 90%;
+        position: absolute;
+        margin-top: -45px;
+    }
+    form{
+        width: 308px;
+        height: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 2px;
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        position: relative;
+    }
+}
