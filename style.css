@@ -226,6 +226,7 @@ header h1{
     border-radius: 2px;
     border: 1px solid gray; 
     min-width: 600px;
+    position: relative;
 }
 .changement h1{
     height: 48.8px;
@@ -234,13 +235,6 @@ header h1{
     text-align: center;
     border-bottom: 1px solid white;
     margin-top: 24px;
-}
-#no-players-message{
-    margin-left: 12px;
-    margin-top: 12px;
-    color: white;
-    font-family: sans-serif;
-    display:none;
 }
 .change-grid{
     background: url(images/new.svg);
@@ -376,7 +370,14 @@ input[type="file"]{
 .players-board-433 .card.CB2{
     transform: translateY(30px);
 }
-
+.remove-icon{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    bottom: 3%;
+    right: 0 ;
+    display: none;
+}
 
 
 

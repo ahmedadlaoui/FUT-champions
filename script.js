@@ -84,6 +84,10 @@ players.forEach(player => {
         changecard.appendChild(grid)
     }
 
+    const icon = document.createElement('img')
+    icon.src = "images/remove.svg"
+    icon.className = "remove-icon"
+    changecard.appendChild(icon)
 
 
     document.querySelector('.cards-grid').appendChild(changecard)
@@ -91,51 +95,52 @@ players.forEach(player => {
 });
 
 
+
+
+
 const emptycards = document.querySelectorAll('.card');
 
-emptycards.forEach(card => {
-    card.addEventListener('click', () => {
+emptycards.forEach(cardd => {
+    cardd.addEventListener('click', (f) => {
 
-        document.getElementById('location').scrollIntoView({ behavior: "smooth" });
+        if(cardd.innerHTML!== ""){
+            cardd.innerHTML = ""
+            removeEventListener('click',f)
+        }
+        if(cardd.innerHTML=== ""){
+        // document.getElementById('location').scrollIntoView({ behavior: "smooth" });
 
-        const test = card.className;
+
+        const test = cardd.className;
         const classes = test.split(' ');
         const secondclass = classes[1];
 
         const changecards = document.querySelectorAll('.change-grid');
         const positions = document.querySelectorAll('.position');
 
-        const noPlayersMessage = document.getElementById('no-players-message');
-
-        // display all 
         changecards.forEach(card => {
-            card.style.display = "block";
-        });
 
-        let anyVisible = false;
+            card.style.display = "none";
 
-        positions.forEach((pos, index) => {
-            if (secondclass !== pos.textContent) {
-                changecards[index].style.display = "none";
-            } else {
-                anyVisible = true;
-                changecards[index].addEventListener('click', () => {
-                    document.querySelector('header').scrollIntoView({ behavior: "smooth" });
-                    let player;
-                    player = changecards[index].innerHTML;
-                    card.innerHTML = player;
+            if (card.children[5].textContent === secondclass) {
 
+                card.style.display = "block";
+                card.addEventListener('click', (e) => {
+                    // document.querySelector('header').scrollIntoView({ behavior: "smooth" });
+
+                    
+                    cardd.innerHTML = card.innerHTML;
+                    cardd.lastElementChild.style.display="block"
                 });
             }
         });
 
-        if (!anyVisible) {
-            noPlayersMessage.style.display = "block";
-        } else {
-            noPlayersMessage.style.display = "none";
-        }
+    }
+
     });
 });
+
+
 
 let pic = document.getElementById('imgplace')
 let picfile = document.getElementById('player-picture')
@@ -199,24 +204,26 @@ document.getElementById('Submition-button').addEventListener('click', () => {
 
         } else {
             newplayer = {
-                         "name": document.getElementById('player-name').value,
-                         "photo": pic.src,
-                         "position": document.getElementById('positions').value,
-                         "flag": flagg.src,
-                         "logo" :clubb.src,
-                         "rating": "",
-                         "pace": document.getElementById('Pace').value,
-                         "shooting": document.getElementById('Shooting').value,
-                         "passing": document.getElementById('Passing').value,
-                         "dribbling": document.getElementById('Dribling').value,
-                         "defending": document.getElementById('Defending').value,
-                         "physical": document.getElementById('Physical').value
+                "name": document.getElementById('player-name').value,
+                "photo": pic.src,
+                "position": document.getElementById('positions').value,
+                "flag": flagg.src,
+                "logo": clubb.src,
+                "rating": "",
+                "pace": document.getElementById('Pace').value,
+                "shooting": document.getElementById('Shooting').value,
+                "passing": document.getElementById('Passing').value,
+                "dribbling": document.getElementById('Dribling').value,
+                "defending": document.getElementById('Defending').value,
+                "physical": document.getElementById('Physical').value
             }
         }
 
         players.push(newplayer)
-        localStorage.setItem('array',JSON.stringify(players))
+        localStorage.setItem('array', JSON.stringify(players))
+        window.location.reload()
     }
 
 })
+
 
