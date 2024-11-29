@@ -103,39 +103,46 @@ const emptycards = document.querySelectorAll('.card');
 emptycards.forEach(cardd => {
     cardd.addEventListener('click', (f) => {
 
-        if(cardd.innerHTML!== ""){
+        if (cardd.innerHTML !== "") {
             cardd.innerHTML = ""
-            removeEventListener('click',f)
+            removeEventListener('click', f)
         }
-        if(cardd.innerHTML=== ""){
-        // document.getElementById('location').scrollIntoView({ behavior: "smooth" });
+        if (cardd.innerHTML === "") {
+            // document.getElementById('location').scrollIntoView({ behavior: "smooth" });
 
 
-        const test = cardd.className;
-        const classes = test.split(' ');
-        const secondclass = classes[1];
+            const test = cardd.className;
+            const classes = test.split(' ');
+            const secondclass = classes[1];
 
-        const changecards = document.querySelectorAll('.change-grid');
-        const positions = document.querySelectorAll('.position');
+            const changecards = document.querySelectorAll('.change-grid');
+            const positions = document.querySelectorAll('.position');
 
-        changecards.forEach(card => {
+            changecards.forEach(card => {
 
-            card.style.display = "none";
+                card.style.display = "none";
 
-            if (card.children[5].textContent === secondclass) {
+                if (card.children[5].textContent === secondclass) {
 
-                card.style.display = "block";
-                card.addEventListener('click', (e) => {
-                    // document.querySelector('header').scrollIntoView({ behavior: "smooth" });
+                    card.style.display = "block";
+                    card.addEventListener('click', (e) => {
+                        // document.querySelector('header').scrollIntoView({ behavior: "smooth" });
 
-                    
-                    cardd.innerHTML = card.innerHTML;
-                    cardd.lastElementChild.style.display="block"
-                });
-            }
-        });
 
-    }
+                        cardd.innerHTML = card.innerHTML;
+                        cardd.lastElementChild.style.display = "block"
+
+                        document.getElementById('show-all').addEventListener('click', () => {
+
+
+                    })
+
+
+                    });
+                }
+            });
+
+        }
 
     });
 });
@@ -178,12 +185,10 @@ document.getElementById('positions').addEventListener('change', () => {
     }
 })
 
-
-
-
 document.getElementById('Submition-button').addEventListener('click', () => {
 
     if (document.getElementById('positions').value && document.getElementById('player-name').value) {
+        
 
         let newplayer;
         if (document.getElementById('positions').value === "GK") {
@@ -193,7 +198,7 @@ document.getElementById('Submition-button').addEventListener('click', () => {
                 "position": document.getElementById('positions').value,
                 "flag": flagg.src,
                 "logo": clubb.src,
-                "rating": "",
+                "rating":document.getElementById('Rating').value ,
                 "diving": document.getElementById('Diving').value,
                 "handling": document.getElementById('Handling').value,
                 "kicking": document.getElementById('Kicking').value,
@@ -209,7 +214,7 @@ document.getElementById('Submition-button').addEventListener('click', () => {
                 "position": document.getElementById('positions').value,
                 "flag": flagg.src,
                 "logo": clubb.src,
-                "rating": "",
+                "rating": document.getElementById('Rating').value,
                 "pace": document.getElementById('Pace').value,
                 "shooting": document.getElementById('Shooting').value,
                 "passing": document.getElementById('Passing').value,

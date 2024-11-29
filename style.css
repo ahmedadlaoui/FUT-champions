@@ -158,7 +158,7 @@ header h1{
     top: 14px;
     width: 50px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 50%;
 }
 .name-div{
     position: absolute;
@@ -248,8 +248,9 @@ header h1{
     border-radius: 50px;
     margin: auto;
 }
+
 .change-grid:hover{
-    scale: 0.9;
+    scale: 1.1;
 }
 .cards-grid{
     display: grid;
@@ -379,6 +380,12 @@ input[type="file"]{
     display: none;
 }
 
+#Rating{
+    position: absolute;
+    top: 17%;
+    width: 162px;
+}
+
 
 
 
@@ -439,10 +446,37 @@ input[type="file"]{
         align-items: start;
         margin-top: 128px;
     }
+    .players-board-442{
+        width:100%;
+        position: relative;
+        background: url(images/board.svg);
+        height: 700px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        display: none;
+        margin-top: 128px;
+     }
 }
 
 
 @media screen and (max-width:698px) {
+    .players-board-442{
+        width:100%;
+        position: relative;
+        background: url(images/board.svg);
+        height: 700px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        display: none;
+        margin-top: 128px;
+     }
+
     .players-board-433{
         width:100%;
         position: relative;
@@ -512,9 +546,45 @@ input[type="file"]{
     .card:hover{
         scale: 0.9;
     }
+    
+    #attackers442 {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 105px;
+        margin: auto;
+     }
+     #center442 {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        height: 105px;
+        margin: auto;
+     }
+     #attackers442 div, #center442 div,#defenders442 div{
+        margin: auto;
+     }
+     #defenders442{
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        height: 105px;
+        margin: auto;
+     }
+     #goal-keeper422{
+        height: 105px;
+        margin: auto;
+     }
+    
+     #players442{
+        width: 90%;
+        position: absolute;
+        margin-top: -20px;
+    }
 
 }
 @media screen and (max-width:598px) {
+
 
 
     .cards-grid{
@@ -606,7 +676,7 @@ input[type="file"]{
         margin-left: -20px;
      }
      form{
-        width: 425px;
+        width: 90%;
         height: 600px;
         background-color: rgb(21, 21, 21);
         border-radius: 2px;
@@ -657,9 +727,68 @@ input[type="file"]{
         margin: auto;
         height: 75px;
      }
+
+
+     #attackers442 {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 75px;
+        margin: auto;
+     }
+     #center442 {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        height: 75px;
+        margin: auto;
+     }
+     #defenders442{
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        height: 75px;
+        margin: auto;
+     }
+     #center442{
+        margin: auto;
+     }
+     #goal-keeper422{
+        height: 75px;
+        margin: auto;
+     }
+    
+     #players442{
+        width: 90%;
+        position: absolute;
+        margin-top: -20px;
+    }
 }
 @media screen and (max-width:376px) {
+    .changement{
+        height: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 2px;
+        border: 1px solid gray; 
+        width: 90%;
+        position: relative;
+    }
+    form{
+        width: 90%;
+        height: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 2px;
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        position: relative;
+        
+    }
     .cards-grid{
+        
         display: grid;
         grid-template-columns: repeat(2,1fr);
         justify-content: center;
