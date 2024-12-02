@@ -11,8 +11,7 @@
 <body>
     <header>
         <div style="display: flex;" class="logo">
-            <img src="images/fc25 logo.svg" alt="FC25's logo">
-            <h1>Squad Builder</h1>
+            <h1>FUT champions</h1>©
         </div>
         <select name="tactical formations" id="forms">
             <option value="" disabled selected>Tactical formations</option>
@@ -72,13 +71,13 @@
                     </div>
                 </div>
                 <div id="defenders">
-                    <div class="card RB"><img src="images/new.svg" alt="">
+                    <div class="card LB"><img src="images/new.svg" alt="">
                     </div>
                     <div class="card CB1"><img src="images/new.svg" alt="">
                     </div>
                     <div class="card CB2"><img src="images/new.svg" alt="">
                     </div>
-                    <div class="card LB"><img src="images/new.svg" alt="">
+                    <div class="card RB"><img src="images/new.svg" alt="">
                     </div>
                 </div>
                 <div id="goal-keeper">
@@ -89,17 +88,21 @@
 
 
     </section>
+
     <section class="ajout">
 
         <div class="changement" id="location" >
             <h1 style="width: 100%;">Players</h1>
             <div class="cards-grid">
             </div>
-            <button id="show-all" style="background-color: transparent;border: none;color: rgb(29, 206, 144);font-family: sans-serif;cursor: pointer;width: 100%;position: absolute;bottom: 12px;">show more</button>
+            <button id="show-all" style="background-color: transparent;border: none;color: rgb(29, 206, 144);font-family: sans-serif;cursor: pointer;width: 100%;position: absolute;bottom: 12px; ;">show All</button>
         </div>
 
+        <input type="file" id="player-picture" accept="images/png">
+        <input type="file" id="flag-picture" accept="images/jpeg, images/png, images/jpg">
+        <input type="file" id="club-picture" accept="images/jpeg, images/png, images/jpg">
 
-        <form>
+        <form id="myform">
             <h1 style="color: white;font-family: sans-serif;border-bottom: 1px solid white;position: absolute;top: 56px;">Add  player</h1>
             <input type="number" name="rating" id="Rating" placeholder="Rating" min="0" max="99" required>
             <select name="positions" id="positions" style="position: absolute;top: 8px;right: 8px;" required>
@@ -114,11 +117,9 @@
                 <option value="LW">LW</option>
                 <option value="CB1">CB1</option>
                 <option value="CB2">CB2</option>
+                <option value="LB">LB</option>
+                <option value="RB">RB</option>
             </select>
-
-            <input type="file" id="player-picture" accept="images/png">
-            <input type="file" id="flag-picture" accept="images/jpeg, images/png, images/jpg">
-            <input type="file" id="club-picture" accept="images/jpeg, images/png, images/jpg">
 
             <div> 
                 <div style="display: flex;flex-direction: column; justify-content: center;align-items: center;">

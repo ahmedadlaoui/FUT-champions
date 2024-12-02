@@ -1,5 +1,5 @@
+let playersinfield = [];
 players = JSON.parse(localStorage.getItem('array'))
-
 
 document.getElementById('forms').addEventListener('change', () => {
 
@@ -100,7 +100,7 @@ players.forEach(player => {
 
 const emptycards = document.querySelectorAll('.card');
 
-emptycards.forEach(cardd => {
+emptycards.forEach(cardd => {    
     cardd.addEventListener('click', (f) => {
 
         if (cardd.innerHTML !== "") {
@@ -108,13 +108,10 @@ emptycards.forEach(cardd => {
             removeEventListener('click', f)
         }
         if (cardd.innerHTML === "") {
-            // document.getElementById('location').scrollIntoView({ behavior: "smooth" });
-
-
             const test = cardd.className;
             const classes = test.split(' ');
             const secondclass = classes[1];
-
+            
             const changecards = document.querySelectorAll('.change-grid');
             const positions = document.querySelectorAll('.position');
 
@@ -126,22 +123,35 @@ emptycards.forEach(cardd => {
 
                     card.style.display = "block";
                     card.addEventListener('click', (e) => {
-                        // document.querySelector('header').scrollIntoView({ behavior: "smooth" });
-
 
                         cardd.innerHTML = card.innerHTML;
+                        card.style.display ="none"
                         cardd.lastElementChild.style.display = "block"
-
-                        document.getElementById('show-all').addEventListener('click', () => {
-
-
-                    })
-
-
+                        playersinfield.push(card.children[1].innerText)
+                        
+                        
                     });
                 }
             });
 
+            document.getElementById('show-all').addEventListener('click', () => {
+
+                changecards.forEach(card => {
+                    playersinfield.forEach(player => {       
+                        if(player !== card.children[1].innerText){
+                            card.style.display = "block"
+                        }
+                        
+                        
+                    });
+
+                })
+
+                // removeEventListener('click', f)
+                // removeEventListener('click', e)
+
+
+            })
         }
 
     });
@@ -159,17 +169,14 @@ let clubb = document.querySelector('.addedclub')
 let clubfile = document.getElementById('club-picture')
 
 picfile.onchange = function () {
-
     pic.src = URL.createObjectURL(picfile.files[0]);
 }
 
 flagfile.onchange = function () {
-
     flagg.src = URL.createObjectURL(flagfile.files[0]);
 }
 
 clubfile.onchange = function () {
-
     clubb.src = URL.createObjectURL(clubfile.files[0]);
 
 }
@@ -185,48 +192,58 @@ document.getElementById('positions').addEventListener('change', () => {
     }
 })
 
+
+
 document.getElementById('Submition-button').addEventListener('click', () => {
 
-    if (document.getElementById('positions').value && document.getElementById('player-name').value) {
-        
+    if (document.getElementById('positions').value && document.getElementById('player-name').value && document.getElementById('Rating').value) {
 
-        let newplayer;
-        if (document.getElementById('positions').value === "GK") {
-            newplayer = {
-                "name": document.getElementById('player-name').value,
-                "photo": pic.src,
-                "position": document.getElementById('positions').value,
-                "flag": flagg.src,
-                "logo": clubb.src,
-                "rating":document.getElementById('Rating').value ,
-                "diving": document.getElementById('Diving').value,
-                "handling": document.getElementById('Handling').value,
-                "kicking": document.getElementById('Kicking').value,
-                "reflexes": document.getElementById('Reflexes').value,
-                "speed": document.getElementById('Speed').value,
-                "positioning": document.getElementById('Positioning').value
+        if (document.getElementById('Diving').value && document.getElementById('Handling').value && document.getElementById('Kicking').value && document.getElementById('Reflexes').value && document.getElementById('Speed').value && document.getElementById('Speed').value && document.getElementById('Positioning').value || document.getElementById('Pace').value &&
+            document.getElementById('Shooting').value &&
+            document.getElementById('Passing').value &&
+            document.getElementById('Dribling').value &&
+            document.getElementById('Defending').value &&
+            document.getElementById('Physical').value){
+
+
+            let newplayer;
+            if (document.getElementById('positions').value === "GK") {
+                newplayer = {
+                    "name": document.getElementById('player-name').value,
+                    "photo": pic.src,
+                    "position": document.getElementById('positions').value,
+                    "flag": flagg.src,
+                    "logo": clubb.src,
+                    "rating": document.getElementById('Rating').value,
+                    "diving": document.getElementById('Diving').value,
+                    "handling": document.getElementById('Handling').value,
+                    "kicking": document.getElementById('Kicking').value,
+                    "reflexes": document.getElementById('Reflexes').value,
+                    "speed": document.getElementById('Speed').value,
+                    "positioning": document.getElementById('Positioning').value
+                }
+
+            } else {
+                newplayer = {
+                    "name": document.getElementById('player-name').value,
+                    "photo": pic.src,
+                    "position": document.getElementById('positions').value,
+                    "flag": flagg.src,
+                    "logo": clubb.src,
+                    "rating": document.getElementById('Rating').value,
+                    "pace": document.getElementById('Pace').value,
+                    "shooting": document.getElementById('Shooting').value,
+                    "passing": document.getElementById('Passing').value,
+                    "dribbling": document.getElementById('Dribling').value,
+                    "defending": document.getElementById('Defending').value,
+                    "physical": document.getElementById('Physical').value
+                }
             }
 
-        } else {
-            newplayer = {
-                "name": document.getElementById('player-name').value,
-                "photo": pic.src,
-                "position": document.getElementById('positions').value,
-                "flag": flagg.src,
-                "logo": clubb.src,
-                "rating": document.getElementById('Rating').value,
-                "pace": document.getElementById('Pace').value,
-                "shooting": document.getElementById('Shooting').value,
-                "passing": document.getElementById('Passing').value,
-                "dribbling": document.getElementById('Dribling').value,
-                "defending": document.getElementById('Defending').value,
-                "physical": document.getElementById('Physical').value
-            }
+            players.push(newplayer)
+            localStorage.setItem('array', JSON.stringify(players))
+            window.location.reload()
         }
-
-        players.push(newplayer)
-        localStorage.setItem('array', JSON.stringify(players))
-        window.location.reload()
     }
 
 })

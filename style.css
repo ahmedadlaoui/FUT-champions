@@ -19,6 +19,7 @@ header{
     padding: 24px ;
     width: 100%;
     justify-content: space-between;
+    color: white;
 }
 header h1{
     color: white;
